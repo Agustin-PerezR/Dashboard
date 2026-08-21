@@ -1,6 +1,6 @@
 ---
 name: qa-sync
-description: Ayuda al Tester/QA a redactar y mantener scrumDocs/tests-manifest.json (los tests de endpoint que corre la app desde "Verificación en vivo"), leyendo el código real del proyecto para entender qué endpoints existen de verdad, y sincroniza ese archivo con los Requerimientos de Scrum Master AI vía la API. Solo crea/edita Tests -- nunca Requerimientos, Historias de Usuario, ramas ni estados de ejecución. Usar cuando el usuario pide "armar tests de este endpoint", "sincronizar tests", "actualizar el manifest de tests", "cargar los casos de prueba", o corre /qa-sync explícitamente.
+description: Ayuda al Tester/QA a redactar y mantener docs/tests-manifest.json (los tests de endpoint que corre la app desde "Verificación en vivo"), leyendo el código real del proyecto para entender qué endpoints existen de verdad, y sincroniza ese archivo con los Requerimientos de Scrum Master AI vía la API. Solo crea/edita Tests -- nunca Requerimientos, Historias de Usuario, ramas ni estados de ejecución. Usar cuando el usuario pide "armar tests de este endpoint", "sincronizar tests", "actualizar el manifest de tests", "cargar los casos de prueba", o corre /qa-sync explícitamente.
 user-invocable: true
 allowed-tools:
   - Read
@@ -12,7 +12,7 @@ allowed-tools:
 
 # /qa-sync — Redactar y sincronizar tests de endpoint como Tester/QA
 
-Ayuda a un Tester o QA a mantener `scrumDocs/tests-manifest.json` (el formato de tests de
+Ayuda a un Tester o QA a mantener `docs/tests-manifest.json` (el formato de tests de
 endpoint que ya corre la app desde "Verificación en vivo" y el botón "Correr todos") y
 sincronizarlo con los Requerimientos de Scrum Master AI. A diferencia de escribir eso a
 mano, este skill lee el **código real de este repo** (rutas, controllers, serializers)
@@ -51,18 +51,16 @@ regeneres la key ni cambies de endpoint. Como los textos de este dominio traen a
 comillas y saltos de línea, escribilos a un archivo y mandalo con `-d @archivo.json` en vez
 de pegarlos dentro de `-d '...'`: es lo único que no depende del quoting del shell. Los
 saltos de línea dentro de un valor van como `\n`, nunca literales. La referencia completa
-está en `scrumDocs/SCRUM_MASTER_AI.md`, paso 5.
+está en `docs/SCRUM_MASTER_AI.md`, paso 5.
 
 ## 1. Leer o inicializar el manifest de trazabilidad
 
-Leer `scrumDocs/scrum-manifest.json` (el mismo que usa `/scrum-sync`, sólo para `apiUrl` y
-`projectId` — no tocar sus `mappings`, son del developer). Si no está ahí pero existe `docs/scrum-manifest.json` (ubicación anterior a `scrumDocs/`), leerlo de ahí y reescribirlo ya en `scrumDocs/scrum-manifest.json` — el archivo viejo se deja donde está, no se borra.
-
-Si no existe en ninguno de los dos lugares, crearlo con el mismo formato que usa
-`/scrum-sync` (`apiUrl`, `projectId`, `lastSyncAt`, `mappings`).
+Leer `docs/scrum-manifest.json` (el mismo que usa `/scrum-sync`, sólo para `apiUrl` y
+`projectId` — no tocar sus `mappings`, son del developer). Si no existe, crearlo con el
+mismo formato que usa `/scrum-sync` (`apiUrl`, `projectId`, `lastSyncAt`, `mappings`).
 
 - **`apiUrl`**: no es secreta — si el archivo ya la trae, usarla y no volver a preguntar;
-  si falta, antes de preguntarla revisar si existe `scrumDocs/SCRUM_MASTER_AI.md` (el Project
+  si falta, antes de preguntarla revisar si existe `docs/SCRUM_MASTER_AI.md` (el Project
   Manager la publica ahí ya resuelta) y usar ese valor si está. Sólo si tampoco está ahí,
   preguntarla, guardarla acá y sugerir commitear el archivo.
 - **`projectId`**: si falta, no preguntarlo a ciegas — se resuelve en el paso 1.5 contra
@@ -121,10 +119,7 @@ Si no encontrás el código que implementa un Requerimiento (todavía no está h
 un endpoint HTTP sino una regla de negocio interna), no inventes un test para eso —
 dejalo afuera y reportalo en el resumen final.
 
-## 4. Armar o actualizar el test en `scrumDocs/tests-manifest.json`
-
-Si el archivo todavía está en `docs/tests-manifest.json` (ubicación anterior a
-`scrumDocs/`), leerlo de ahí y reescribirlo ya en `scrumDocs/`.
+## 4. Armar o actualizar el test en `docs/tests-manifest.json`
 
 Formato (ver también la sección correspondiente en el skill `/scrum-sync`, que es quien
 originalmente lee este archivo desde el lado del developer):
@@ -168,7 +163,7 @@ Igual que el paso 5 de `/scrum-sync`, pero corriéndolo vos mismo como Tester/QA
 delegarlo:
 
 - Resolver `requirementCode` contra la lista del paso 2 (por `code`, nunca por nombre).
-- No confiar sólo en el `testId` de `scrumDocs/scrum-manifest.json` para decidir si el test ya
+- No confiar sólo en el `testId` de `docs/scrum-manifest.json` para decidir si el test ya
   existe — ese archivo puede faltar, no estar commiteado, o venir de otro clon. Antes de
   crear, traer los tests que la API ya tiene registrados para este Requerimiento y
   matchear por `title` exacto:
@@ -208,8 +203,8 @@ delegarlo:
 
 ## 6. Guardar el manifest y resumen final
 
-Reescribir `scrumDocs/tests-manifest.json` completo (viejas entradas + nuevas/actualizadas) y
-`scrumDocs/scrum-manifest.json` con los `testIds` que falten. Reportar, en texto:
+Reescribir `docs/tests-manifest.json` completo (viejas entradas + nuevas/actualizadas) y
+`docs/scrum-manifest.json` con los `testIds` que falten. Reportar, en texto:
 - Cuántos tests se crearon o actualizaron, y para qué Requerimientos.
 - Qué Requerimientos quedaron sin test porque no se encontró el código que los
   implementa.
