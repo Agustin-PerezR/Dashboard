@@ -1,0 +1,1 @@
+quiero un dashboard de tareas, con un sistema de usuarios con login completo (recuperacion de contraseña por correo electronico). El mismo va a ser para gestion de tareas donde va a disponer de distintas columnas que muestren las tareas en to do, doing, blocked, done.
