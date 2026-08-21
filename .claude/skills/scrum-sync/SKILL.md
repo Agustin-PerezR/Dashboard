@@ -58,13 +58,11 @@ regeneres la key ni cambies de endpoint. Como los textos de este dominio traen a
 comillas y saltos de línea, escribilos a un archivo y mandalo con `-d @archivo.json` en vez
 de pegarlos dentro de `-d '...'`: es lo único que no depende del quoting del shell. Los
 saltos de línea dentro de un valor van como `\n`, nunca literales. La referencia completa
-está en `scrumDocs/SCRUM_MASTER_AI.md`, paso 5.
+está en `docs/SCRUM_MASTER_AI.md`, paso 5.
 
 ## 1. Leer o inicializar el manifest (aplica a las dos formas)
 
-Leer `scrumDocs/scrum-manifest.json` en la raíz del repo. Si no está ahí pero existe `docs/scrum-manifest.json` (ubicación anterior a `scrumDocs/`), leerlo de ahí y reescribirlo ya en `scrumDocs/scrum-manifest.json` — el archivo viejo se deja donde está, no se borra.
-
-Si no existe en ninguno de los dos lugares, crearlo:
+Leer `docs/scrum-manifest.json` en la raíz del repo. Si no existe, crearlo:
 
 ```json
 {
@@ -77,7 +75,7 @@ Si no existe en ninguno de los dos lugares, crearlo:
 
 - **`apiUrl`**: a diferencia de la key, no es secreta — vive commiteada en el repo.
   Si el archivo ya la trae, usarla tal cual y no volver a preguntar. Si falta, antes de
-  preguntarle nada al usuario, revisar si existe `scrumDocs/SCRUM_MASTER_AI.md` — el Project
+  preguntarle nada al usuario, revisar si existe `docs/SCRUM_MASTER_AI.md` — el Project
   Manager la publica ahí ya resuelta (`SCRUM_API_URL es <url>`) porque el servidor la saca
   sola de su propia URL pública; si está, usar ese valor. Sólo si ninguna de las dos
   fuentes la tiene, preguntarle la URL al usuario. En cualquier caso, guardarla en el
@@ -193,7 +191,7 @@ curl -s -X PATCH "$SCRUM_API_URL/api/v1/requirements/$REQUIREMENT_ID" \
     -d @/tmp/cuerpo.json
   ```
   Guardar el `id` (`TEST-...`) en `testIds` de esa entrada del manifest.
-  Si el repo tiene `scrumDocs/tests-manifest.json` (ver paso 5), no crear tests sueltos acá
+  Si el repo tiene `docs/tests-manifest.json` (ver paso 5), no crear tests sueltos acá
   para lo que ya esté cubierto por ese archivo — dejarle el trabajo al paso 5, que es
   más rico (guarda los pasos de verificación, no sólo el nombre).
 
@@ -230,10 +228,9 @@ En cualquiera de los dos casos, antes de crear nada:
    - `201` → guardar en el manifest una entrada `{ requirementId, sourceRef, testIds: [] }`
      igual que en el paso 4, para que una relectura futura no lo vuelva a crear.
 
-#### 5. Sincronizar `scrumDocs/tests-manifest.json` (tests de endpoint)
+#### 5. Sincronizar `docs/tests-manifest.json` (tests de endpoint)
 
-Si el repo tiene `scrumDocs/tests-manifest.json` (o `docs/tests-manifest.json`, la
-ubicación anterior), es la fuente de tests de endpoint que el
+Si el repo tiene `docs/tests-manifest.json`, es la fuente de tests de endpoint que el
 programador mantiene junto con su código — un archivo por proyecto, con un test por
 endpoint/flujo, pensado para que QA los corra desde "Verificación en vivo" en la app sin
 tener que tipear URLs a mano. Formato:
@@ -270,7 +267,7 @@ tener que tipear URLs a mano. Formato:
   único por corrida. **No resolver `{{baseUrl}}` acá ni pedirle la URL real al usuario**
   — lo resuelve la app cuando QA corre el test, contra la Base URL de verificación que el
   Project Manager ya configuró para el proyecto (este skill no necesita conocerla).
-- No confiar sólo en el `testId` de `scrumDocs/scrum-manifest.json` para saber si el test ya
+- No confiar sólo en el `testId` de `docs/scrum-manifest.json` para saber si el test ya
   existe — ese archivo puede faltar, no estar commiteado, o venir de otro clon. Antes de
   crear, traer los tests que la API ya tiene registrados para este Requerimiento y
   matchear por `title` exacto:
@@ -311,7 +308,7 @@ tener que tipear URLs a mano. Formato:
 
 #### 6. Guardar el manifest actualizado
 
-Reescribir `scrumDocs/scrum-manifest.json` con `lastSyncAt` en la fecha/hora actual (ISO) y
+Reescribir `docs/scrum-manifest.json` con `lastSyncAt` en la fecha/hora actual (ISO) y
 todas las entradas de `mappings` (viejas + nuevas, incluyendo los `testIds` del paso 5).
 
 #### 7. Resumen final
@@ -319,7 +316,7 @@ todas las entradas de `mappings` (viejas + nuevas, incluyendo los `testIds` del 
 Reportarle al usuario, en texto, no en JSON crudo:
 - Cuántos Requerimientos se actualizaron (y a qué estado, si cambió).
 - Cuántos Requerimientos se crearon (paso 4.5), y bajo qué Historia de Usuario cada uno.
-- Cuántos Tests se crearon o actualizaron desde `scrumDocs/tests-manifest.json`.
+- Cuántos Tests se crearon o actualizaron desde `docs/tests-manifest.json`.
 - Qué Requerimientos quedaron sin cobertura clara (para que sepa qué falta implementar o
   documentar mejor).
 
@@ -333,7 +330,7 @@ nada a mano en la app.
 
 1. **Traer el plan actualizado**: correr `git pull` sobre la rama principal del repo (si
    el working tree tiene cambios sin commitear, avisar y parar — no pisar trabajo en
-   curso). Leer `scrumDocs/scrum-plan.md`. Si no existe, avisar que el Project Manager
+   curso). Leer `docs/scrum-plan.md`. Si no existe, avisar que el Project Manager
    todavía no publicó el plan desde la app ("Publicar Plan") y parar.
 2. **Elegir el Requerimiento**: el archivo trae una tabla ya ordenada por dependencias
    (columna "Orden") con columnas Código/Estado/Desarrollador/Depende de/Rechazos. Con
@@ -402,8 +399,8 @@ nada a mano en la app.
 - Si `$SCRUM_API_URL` tiene un `/` final, quitarlo antes de concatenar rutas.
 - Todas las respuestas de error de la API vienen como `{"error": "..."}` — mostrar ese
   mensaje tal cual, no reinterpretarlo.
-- `scrumDocs/scrum-plan.md` lo publica el Project Manager desde la app ("Publicar Plan") —
+- `docs/scrum-plan.md` lo publica el Project Manager desde la app ("Publicar Plan") —
   este skill sólo lo lee, nunca lo escribe ni lo edita.
-- `scrumDocs/tests-manifest.json` es al revés: lo escribe el programador (o este skill en su
+- `docs/tests-manifest.json` es al revés: lo escribe el programador (o este skill en su
   nombre) en el repo del proyecto, y este skill lo lee para sincronizar. Nunca inventar
   entradas ahí — sólo reflejar endpoints que realmente existen en el código.
