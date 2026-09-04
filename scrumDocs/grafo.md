@@ -1,6 +1,6 @@
 # Grafo de Dependencias -- Dashboard
 
-_Generado automaticamente el 2026-09-04T12:14:09.745Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-09-04T12:16:31.718Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ```mermaid
 graph TD
@@ -11,5 +11,8 @@ graph TD
   subgraph US_1788520756161["HU-02: Tablero Kanban de Gestión de Tareas"]
     REQ_1788521453775["RF-01: Visualización del Tablero Kanban y Columnas de Estado"]
     REQ_1788521465401["RF-02: Creación, Edición y Persistencia del Estado de Tareas"]
+  end
+  subgraph US_1788524188069["RO-01: Crear maquina virtual"]
+    REQ_1788524188077["RF-01: Crear maquina virtual"]
   end
 ```
