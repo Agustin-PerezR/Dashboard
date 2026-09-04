@@ -1,6 +1,6 @@
 # Plan de Requerimientos — Dashboard
 
-_Generado automáticamente el 2026-09-04T12:14:06.276Z — no editar a mano, se sobreescribe en cada publicación._
+_Generado automáticamente el 2026-09-04T12:16:28.099Z — no editar a mano, se sobreescribe en cada publicación._
 
 Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada fila indica de qué Requerimientos depende, si tiene.
 
@@ -10,6 +10,7 @@ Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada f
 | 2 | RF-02 | Recuperación de Contraseña mediante Correo Electrónico | HU-01 | — | — | Hacer | Sin asignar | — | — |
 | 3 | RF-01 | Visualización del Tablero Kanban y Columnas de Estado | HU-02 | — | — | Hacer | Sin asignar | — | — |
 | 4 | RF-02 | Creación, Edición y Persistencia del Estado de Tareas | HU-02 | — | — | Hacer | Sin asignar | — | — |
+| 5 | RF-01 | Crear maquina virtual | RO-01 | — | — | Hacer | Sin asignar | — | — |
 
 ## Detalle
 
@@ -25,3 +26,6 @@ Inicio de desarrollo del requerimiento
 
 ### RF-02 — Creación, Edición y Persistencia del Estado de Tareas
 - Estimado: 0h
+
+### RF-01 — Crear maquina virtual
+- Estimado: 4h
