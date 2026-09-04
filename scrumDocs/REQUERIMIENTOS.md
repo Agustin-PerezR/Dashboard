@@ -1,6 +1,6 @@
 # Requerimientos -- Dashboard
 
-_Generado automaticamente el 2026-09-04T13:02:15.692Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-09-04T13:42:44.458Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ## HU-01: Autenticación y Recuperación de Cuenta de Usuario
 
