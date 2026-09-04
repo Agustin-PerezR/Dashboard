@@ -1,6 +1,6 @@
 # Historias de Usuario -- Dashboard
 
-_Generado automaticamente el 2026-09-04T11:19:07.686Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-09-04T11:19:17.770Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ## HU-01: Autenticación y Recuperación de Cuenta de Usuario
 
@@ -15,3 +15,17 @@ Como usuario del sistema quiero registrarme, iniciar sesión y recuperar mi cont
 ### Detalle Tecnico y Reglas de Negocio
 
 Sistema de autenticación y correo para recuperación de clave.
+
+## HU-02: Tablero Kanban de Gestión de Tareas
+
+Como usuario quiero visualizar y organizar mis tareas en un tablero Kanban con columnas (To Do, Doing, Blocked, Done) para dar seguimiento a mi trabajo diario.
+
+### Criterios de Aceptacion
+
+- Tablero visual con columnas: To Do, Doing, Blocked y Done.
+- Creación, edición y movimiento de tareas entre columnas.
+- Persistencia de cambios de estado de las tareas.
+
+### Detalle Tecnico y Reglas de Negocio
+
+Componente de Dashboard Kanban interactivo con soporte para arrastrar o cambiar estados entre columnas.
