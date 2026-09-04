@@ -1,6 +1,6 @@
 # Historias de Usuario -- Dashboard
 
-_Generado automaticamente el 2026-09-04T12:10:00.685Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-09-04T12:14:07.805Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ## HU-01: Autenticación y Recuperación de Cuenta de Usuario
 
