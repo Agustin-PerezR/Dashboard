@@ -1,12 +1,12 @@
 # Plan de Requerimientos — Dashboard
 
-_Generado automáticamente el 2026-09-04T12:40:31.530Z — no editar a mano, se sobreescribe en cada publicación._
+_Generado automáticamente el 2026-09-04T12:46:27.552Z — no editar a mano, se sobreescribe en cada publicación._
 
 Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada fila indica de qué Requerimientos depende, si tiene.
 
 | Orden | Código | Requerimiento | Historia de Usuario | Módulo | Entrega | Estado | Desarrollador | Depende de | Rechazos |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | RF-01 | Registro e Inicio de Sesión de Usuario | HU-01 | — | — | Haciendo | dev-dashboard | — | — |
+| 1 | RF-01 | Registro e Inicio de Sesión de Usuario | HU-01 | — | — | Hecho | dev-dashboard | — | — |
 | 2 | RF-02 | Recuperación de Contraseña mediante Correo Electrónico | HU-01 | — | — | Hacer | Sin asignar | — | — |
 | 3 | RF-01 | Visualización del Tablero Kanban y Columnas de Estado | HU-02 | — | — | Hacer | Sin asignar | — | — |
 | 4 | RF-02 | Creación, Edición y Persistencia del Estado de Tareas | HU-02 | — | — | Hacer | Sin asignar | — | — |
@@ -15,7 +15,7 @@ Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada f
 ## Detalle
 
 ### RF-01 — Registro e Inicio de Sesión de Usuario
-Inicio de desarrollo del requerimiento
+Implementación completada y verificada: interfaz de registro y login, validación de credenciales, control de sesión y suite de pruebas unitarias (TEST-1788525086984).
 - Estimado: 0h
 
 ### RF-02 — Recuperación de Contraseña mediante Correo Electrónico
