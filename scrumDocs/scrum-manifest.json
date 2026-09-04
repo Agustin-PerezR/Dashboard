@@ -1,12 +1,14 @@
 {
   "apiUrl": "https://scrum.misitiowebpersonal.com.ar",
   "projectId": "PROJ-1787918618146",
-  "lastSyncAt": "2026-09-04T12:16:00.000Z",
+  "lastSyncAt": "2026-09-04T12:31:00.000Z",
   "mappings": [
     {
       "requirementId": "REQ-1788521426728",
-      "sourceRef": "app.js#registerForm & loginForm",
-      "testIds": []
+      "sourceRef": "tests/auth.test.js & app.js#registerForm & loginForm",
+      "testIds": [
+        "TEST-1788525086984"
+      ]
     }
   ]
 }

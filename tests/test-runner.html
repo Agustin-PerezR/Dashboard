@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pruebas Unitarias - RF-01</title>
+  <style>
+    body { font-family: sans-serif; background: #0f172a; color: #f8fafc; padding: 2rem; }
+    h1 { color: #38bdf8; }
+    .card { background: #1e293b; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; }
+    .pass { color: #4ade80; }
+    .fail { color: #f87171; }
+    ul { list-style: none; padding-left: 0; }
+    li { margin: 0.5rem 0; padding: 0.5rem; background: #0f172a; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Pruebas Unitarias — RF-01: Registro e Inicio de Sesión</h1>
+  <div class="card">
+    <div id="summary">Ejecutando pruebas...</div>
+    <ul id="results"></ul>
+  </div>
+
+  <script src="auth.test.js"></script>
+  <script>
+    const outcome = runTests();
+    const summaryEl = document.getElementById('summary');
+    const resultsEl = document.getElementById('results');
+
+    summaryEl.innerHTML = `<strong>Resultado:</strong> ${outcome.passed}/${outcome.total} pruebas superadas. ` +
+      (outcome.allPassed ? '<span class="pass">¡TODAS PASARON!</span>' : '<span class="fail">HAY FALLOS</span>');
+
+    outcome.results.forEach(r => {
+      const li = document.createElement('li');
+      li.className = r.passed ? 'pass' : 'fail';
+      li.textContent = `${r.passed ? '✓' : '✗'} ${r.description}`;
+      resultsEl.appendChild(li);
+    });
+  </script>
+</body>
+</html>
