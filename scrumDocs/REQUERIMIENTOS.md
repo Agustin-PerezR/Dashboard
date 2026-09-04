@@ -1,6 +1,6 @@
 # Requerimientos -- Dashboard
 
-_Generado automaticamente el 2026-09-04T11:30:33.559Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-09-04T11:30:56.314Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ## HU-01: Autenticación y Recuperación de Cuenta de Usuario
 
@@ -11,3 +11,9 @@ Permitir el registro de nuevos usuarios y el inicio de sesión con correo electr
 ### RF-02: Recuperación de Contraseña mediante Correo Electrónico (Funcional)
 
 Implementar la funcionalidad para solicitar y enviar un correo electrónico con el enlace/token de recuperación para restablecer la contraseña.
+
+## HU-02: Tablero Kanban de Gestión de Tareas
+
+### RF-01: Visualización del Tablero Kanban y Columnas de Estado (Funcional)
+
+Implementar la interfaz de usuario con el tablero visual organizado en 4 columnas (To Do, Doing, Blocked y Done) para el seguimiento de tareas.
