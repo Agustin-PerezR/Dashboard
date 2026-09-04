@@ -1,6 +1,6 @@
 # Requerimientos -- Dashboard
 
-_Generado automaticamente el 2026-09-04T12:14:08.822Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-09-04T12:16:30.700Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ## HU-01: Autenticación y Recuperación de Cuenta de Usuario
 
@@ -21,3 +21,9 @@ Implementar la interfaz de usuario con el tablero visual organizado en 4 columna
 ### RF-02: Creación, Edición y Persistencia del Estado de Tareas (Funcional)
 
 Permitir la creación de tareas, edición de sus detalles y movimiento entre columnas del tablero, garantizando la persistencia de datos en backend.
+
+## RO-01: Crear maquina virtual
+
+### RF-01: Crear maquina virtual (Funcional)
+
+Crear maquina virtual para poder publicar, en un servidor, la rama de prueba y que asi el QA pueda empezar a realizar las pruebas
