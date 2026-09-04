@@ -1,6 +1,6 @@
 # Grafo de Dependencias -- Dashboard
 
-_Generado automaticamente el 2026-09-04T12:10:03.002Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-09-04T12:14:09.745Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ```mermaid
 graph TD
