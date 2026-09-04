@@ -1,6 +1,6 @@
 # Plan de Requerimientos — Dashboard
 
-_Generado automáticamente el 2026-09-04T11:31:05.423Z — no editar a mano, se sobreescribe en cada publicación._
+_Generado automáticamente el 2026-09-04T11:38:38.332Z — no editar a mano, se sobreescribe en cada publicación._
 
 Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada fila indica de qué Requerimientos depende, si tiene.
 
