@@ -1,6 +1,6 @@
 # Requerimientos -- Dashboard
 
-_Generado automaticamente el 2026-09-04T11:30:56.314Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-09-04T11:31:07.935Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ## HU-01: Autenticación y Recuperación de Cuenta de Usuario
 
@@ -17,3 +17,7 @@ Implementar la funcionalidad para solicitar y enviar un correo electrónico con 
 ### RF-01: Visualización del Tablero Kanban y Columnas de Estado (Funcional)
 
 Implementar la interfaz de usuario con el tablero visual organizado en 4 columnas (To Do, Doing, Blocked y Done) para el seguimiento de tareas.
+
+### RF-02: Creación, Edición y Persistencia del Estado de Tareas (Funcional)
+
+Permitir la creación de tareas, edición de sus detalles y movimiento entre columnas del tablero, garantizando la persistencia de datos en backend.
